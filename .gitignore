@@ -1,0 +1,31 @@
+# Secrets. The token is the only thing standing between the network and
+# whatever the backend can reach. Never commit these, private repo or not.
+server/.env
+watch/local.properties
+
+# Node
+node_modules/
+package-lock.json
+*.log
+
+# Android build output
+watch/app/build/
+watch/build/
+watch/.gradle/
+watch/captures/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# JVM crash dumps. They carry your username, your full PATH and your machine's
+# hardware, which is more than you meant to publish.
+hs_err_pid*.log
+replay_pid*.log
+
+# Editors and OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
