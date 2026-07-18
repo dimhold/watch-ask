@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- White mic with sound arcs, on the orange band background. Same shape as the
+     in-app button, so icon and app read as one thing. Drawn inside the 72dp safe
+     zone of the 108dp adaptive-icon canvas. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- mic capsule -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,38 m-7,0 a7,7 0 1,0 14,0 l0,14 a7,7 0 1,1 -14,0 z" />
+
+    <!-- cradle -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M40,50 A14,14 0 0,0 68,50" />
+
+    <!-- stem -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M54,64 L54,72" />
+
+    <!-- sound arcs: softened white so they read as echo, not as more mic -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.75"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M32,36 A24,24 0 0,0 32,60" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.45"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M23,30 A34,34 0 0,0 23,66" />
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.75"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M76,36 A24,24 0 0,1 76,60" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeAlpha="0.45"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M85,30 A34,34 0 0,1 85,66" />
+</vector>

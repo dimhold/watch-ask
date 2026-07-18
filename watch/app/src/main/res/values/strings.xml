@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ask</string>
+    <string name="talk">Ask a question</string>
+    <string name="replay">Say it again</string>
+    <string name="stop_speaking">Stop talking</string>
+    <string name="getting_ready">One moment…</string>
+    <string name="hint">Tap and speak</string>
+    <string name="settings">Settings</string>
+    <string name="settings_open">Open settings</string>
+    <string name="voice">Voice</string>
+    <string name="voice_n">Voice %1$d</string>
+    <string name="needs_network">needs network</string>
+    <string name="pitch_fmt">Pitch · %1$d%%</string>
+    <string name="rate_fmt">Speed · %1$d%%</string>
+    <string name="test_voice">Test</string>
+    <string name="save">Save</string>
+    <string name="voice_sample">This is how I will sound. Check that it is easy to follow on the move.</string>
+    <string name="no_recognizer">This watch has no speech recognition</string>
+    <string name="no_mic">Microphone access is needed</string>
+    <string name="recognizer_error">Recognition failed (code %1$d)</string>
+    <string name="working_fmt">Working… %1$ds</string>
+    <string name="answer_timeout">The backend is taking too long. Check the machine running it.</string>
+    <string name="no_backend">Could not reach the backend: %1$s</string>
+</resources>

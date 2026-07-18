@@ -1,0 +1,17 @@
+# Copy to local.properties and fill in. local.properties is gitignored and must
+# stay that way: it carries the token that unlocks your backend.
+
+# Android SDK location. Android Studio writes this line for you.
+# sdk.dir=/path/to/Android/Sdk
+
+# Where the backend is listening. Use the LAN address of the machine running
+# server/, not localhost: "localhost" on a watch means the watch.
+# 192.0.2.10 below is a documentation address and will not work as-is.
+backend.url=http://192.0.2.10:8787
+
+# Same string as ASK_TOKEN in server/.env.
+backend.token=
+
+# BCP-47 tag for speech recognition and the spoken reply, e.g. en-US, de-DE,
+# pl-PL. Leave empty to follow the watch's own locale.
+speech.language=

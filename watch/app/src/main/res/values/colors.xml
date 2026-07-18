@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One accent, black everywhere else. Black is not a style choice on a watch:
+     an OLED costs nothing to leave dark, and a dark screen at 2am is the
+     difference between reading an answer and being blinded by one.
+     Change these values and the whole app changes with them. -->
+<resources>
+    <color name="accent">#FF6D1F</color>
+    <color name="accent_pressed">#C24D12</color>
+    <color name="accent_dim">#8F3A0E</color>
+    <color name="ink">#000000</color>
+</resources>

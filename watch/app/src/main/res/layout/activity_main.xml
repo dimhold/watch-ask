@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Round 480x480 screen: everything lives in the middle, nothing near the edge. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- The button is the interface; the pulse says what state we're in.
+         Tap once to start listening, tap again to stop. -->
+    <com.dimhold.watchask.PulseView
+        android:id="@+id/pulse"
+        android:layout_width="188dp"
+        android:layout_height="188dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/talk" />
+
+    <!-- Words appear here as they are recognised, right under the pulse.
+         No Google overlay: our own screen throughout. -->
+    <TextView
+        android:id="@+id/liveText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="34dp"
+        android:gravity="center"
+        android:maxLines="3"
+        android:ellipsize="start"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textColor="#FFB04C"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/hintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="46dp"
+        android:text="@string/hint"
+        android:textColor="#5A5A5A"
+        android:textSize="11sp" />
+
+    <!-- Top of the round face: out of the way of the button, still one tap. -->
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="26dp"
+        android:alpha="0.5"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/settings_open"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_settings" />
+
+    <!-- Answer view. Both buttons stay visible: asking again and replaying must
+         never depend on finding a hidden tap target, because you may be
+         mid-workout and not looking closely. -->
+    <ScrollView
+        android:id="@+id/replyScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:paddingTop="26dp"
+        android:paddingBottom="18dp"
+        android:scrollbars="none"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/heardText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#6E6E6E"
+                android:textSize="11sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/replyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.25"
+                android:textColor="#F2F2F2"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/askAgainButton"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/circle_button"
+                    android:contentDescription="@string/talk"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_mic_small" />
+
+                <!-- Same slot, two meanings: stop the voice, or hear it again. -->
+                <ImageButton
+                    android:id="@+id/speakButton"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="18dp"
+                    android:background="@drawable/circle_button"
+                    android:contentDescription="@string/replay"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_replay" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
