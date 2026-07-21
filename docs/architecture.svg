@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" role="img" aria-labelledby="svgtitle svgdesc">
+  <title id="svgtitle">watch-ask architecture</title>
+  <desc id="svgdesc">A Galaxy Watch recognises speech on the device and posts the recognised question to a small Node server on your own machine. The server hands the question to one pluggable adapter, either headless Claude Code, any OpenAI-compatible endpoint, or an echo adapter for debugging, and returns the reply. The watch shows the reply and speaks it.</desc>
+
+  <defs>
+    <style>
+      .bg     { fill: #0d1117; }
+      .card   { fill: #161b22; stroke: #30363d; stroke-width: 1.5; }
+      .card2  { fill: #10151c; stroke: #30363d; stroke-width: 1.25; }
+      .accent { fill: #ff6d1f; }
+      .wire   { stroke: #ff6d1f; stroke-width: 2; fill: none; }
+      .wire2  { stroke: #58a6ff; stroke-width: 2; fill: none; }
+      .h      { fill: #e6edf3; font: 700 16px ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .t      { fill: #c9d1d9; font: 400 13px ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .m      { fill: #8b949e; font: 400 12px ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .code   { fill: #ffb787; font: 400 12px ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; }
+      .codeb  { fill: #79c0ff; font: 400 12px ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; }
+      .tag    { fill: #7d8590; font: 600 10.5px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .09em; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff6d1f"/>
+    </marker>
+    <marker id="arrowb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1040" height="470" rx="14"/>
+
+  <!-- ===================== watch ===================== -->
+  <text class="tag" x="32" y="46">ON YOUR WRIST</text>
+  <rect class="card" x="32" y="60" width="224" height="250" rx="16"/>
+
+  <rect x="87" y="86" width="114" height="114" rx="30" fill="#0d1117" stroke="#ff6d1f" stroke-width="2"/>
+  <rect x="201" y="118" width="7" height="18" rx="3" class="accent"/>
+  <rect x="201" y="146" width="7" height="26" rx="3" fill="#6e4326"/>
+  <circle cx="144" cy="143" r="40" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <circle cx="144" cy="143" r="36" fill="none" stroke="#ff6d1f" stroke-width="1.5" opacity="0.22"/>
+  <circle cx="144" cy="143" r="28" fill="none" stroke="#ff6d1f" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="144" cy="143" r="19" class="accent" opacity="0.92"/>
+  <rect x="140" y="134" width="8" height="13" rx="4" fill="#0d1117"/>
+  <path d="M136 145 a8 8 0 0 0 16 0" fill="none" stroke="#0d1117" stroke-width="2"/>
+
+  <text class="h" x="144" y="240" text-anchor="middle">Galaxy Watch</text>
+  <text class="t" x="144" y="261" text-anchor="middle">Wear OS, Kotlin</text>
+  <text class="m" x="144" y="285" text-anchor="middle">recognition runs on device</text>
+  <text class="m" x="144" y="301" text-anchor="middle">reply is read aloud by TTS</text>
+
+  <!-- ===================== question wire ===================== -->
+  <path class="wire" d="M262 150 H 414" marker-end="url(#arrow)"/>
+  <text class="code" x="338" y="134" text-anchor="middle">POST /ask</text>
+  <text class="codeb" x="338" y="180" text-anchor="middle">{"question": "..."}</text>
+  <text class="m" x="338" y="200" text-anchor="middle">Authorization: Bearer</text>
+
+  <!-- ===================== reply wire ===================== -->
+  <path class="wire2" d="M414 250 H 262" marker-end="url(#arrowb)"/>
+  <text class="codeb" x="338" y="236" text-anchor="middle">{"reply": "..."}</text>
+
+  <!-- ===================== server ===================== -->
+  <text class="tag" x="420" y="46">ON YOUR OWN MACHINE</text>
+  <rect class="card" x="420" y="60" width="260" height="250" rx="16"/>
+  <text class="h" x="550" y="95" text-anchor="middle">watch-ask server</text>
+  <text class="t" x="550" y="116" text-anchor="middle">Node, no dependencies</text>
+
+  <rect class="card2" x="440" y="138" width="220" height="34" rx="8"/>
+  <text class="code" x="454" y="160">POST /ask</text>
+
+  <rect class="card2" x="440" y="180" width="220" height="34" rx="8"/>
+  <text class="code" x="454" y="202">POST /ask?mode=async</text>
+
+  <rect class="card2" x="440" y="222" width="220" height="34" rx="8"/>
+  <text class="code" x="454" y="244">GET /result/:id</text>
+
+  <text class="m" x="550" y="283" text-anchor="middle">no session, no transcript,</text>
+  <text class="m" x="550" y="299" text-anchor="middle">nothing kept between questions</text>
+
+  <!-- ===================== adapter wire ===================== -->
+  <path class="wire" d="M692 185 H 758" marker-end="url(#arrow)"/>
+  <text class="m" x="725" y="172" text-anchor="middle">one adapter</text>
+
+  <!-- ===================== adapters ===================== -->
+  <text class="tag" x="770" y="46">WHATEVER ANSWERS</text>
+  <rect class="card" x="770" y="60" width="238" height="250" rx="16"/>
+
+  <rect class="card2" x="788" y="80" width="202" height="66" rx="10"/>
+  <circle cx="806" cy="103" r="4" class="accent"/>
+  <text class="h" x="820" y="108">claude-cli</text>
+  <text class="m" x="804" y="128">headless claude -p</text>
+  <text class="m" x="804" y="142" fill="#ff9d5c">your subscription, $0 API</text>
+
+  <rect class="card2" x="788" y="158" width="202" height="66" rx="10"/>
+  <circle cx="806" cy="181" r="4" fill="#58a6ff"/>
+  <text class="h" x="820" y="186">http</text>
+  <text class="m" x="804" y="206">any OpenAI-compatible</text>
+  <text class="m" x="804" y="220">endpoint, local or paid</text>
+
+  <rect class="card2" x="788" y="236" width="202" height="58" rx="10"/>
+  <circle cx="806" cy="259" r="4" fill="#8b949e"/>
+  <text class="h" x="820" y="264">echo</text>
+  <text class="m" x="804" y="284">proves the wiring works</text>
+
+  <!-- ===================== footer ===================== -->
+  <rect class="card2" x="32" y="340" width="976" height="98" rx="12"/>
+  <text class="t" x="56" y="372">The watch and the machine sit on the same network. The token is the only lock on that port, so it is</text>
+  <text class="t" x="56" y="392">generated once, kept out of git, and rotated by editing two files.</text>
+  <text class="m" x="56" y="418">Audio never leaves the watch. Only the recognised text goes out, and only the reply comes back.</text>
+</svg>
